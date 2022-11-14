@@ -1,20 +1,7 @@
 const chalk = require("chalk");
 const puns = require("puns.dev");
-
-/*
-NAME
-pun.js - Outputs a pun, and it's punchline using colors in the terminal.
-
-SYNOPSIS
-pun.js [OPTIONS]
-
-OPTIONS
--s, --search QUERY
-    Searches for a pun that matches the query.
--id NUM, --id NUM
-    Outputs the pun with the id of NUM
--h, --help
-    Output a usage message and exit.*/
+const Console = require("console");
+const myArgs = process.argv.slice(2);
 
 function printPun(puns) {
     console.log(chalk.greenBright(puns.pun));
@@ -34,15 +21,24 @@ function IdQuery(id) {
 
 // Handled case for help
 function HelpQuery() {
-
+    console.log("SYNOPSIS\n" +
+        "\tpun.js [OPTIONS]\n" +
+        "OPTIONS\n" +
+        "\t-s, --search QUERY\n" +
+        "\t\tSearches for a pun that matches the QUERY.\n" +
+        "\t-id NUM, --id NUM\n" +
+        "\t\tOutputs the pun with the id of NUM\n" +
+        "\t-h, --help\n" +
+        "\t\tOutput a usage message and exit.")
 }
 
 // Handled case for no command line arguments for random pun
 function RandomQuery() {
-    printPun(puns.random());
+    if (myArgs.length > 0) {
+        console.log("Incorrect argument syntax. -h or --help for commands.")
+        process.exitCode = 1;
+    } else printPun(puns.random());
 }
-
-const myArgs = process.argv.slice(2);
 
 switch (myArgs[0]) {
     // Handled case for search query
@@ -64,10 +60,3 @@ switch (myArgs[0]) {
     default:
         RandomQuery();
 }
-
-
-
-
-
-
-
