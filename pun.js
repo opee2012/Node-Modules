@@ -21,15 +21,15 @@ function IdQuery(id) {
 
 // Handled case for help
 function HelpQuery() {
-    console.log("SYNOPSIS\n" +
-        "\tpun.js [OPTIONS]\n" +
-        "OPTIONS\n" +
-        "\t-s, --search QUERY\n" +
-        "\t\tSearches for a pun that matches the QUERY.\n" +
-        "\t-id NUM, --id NUM\n" +
-        "\t\tOutputs the pun with the id of NUM\n" +
-        "\t-h, --help\n" +
-        "\t\tOutput a usage message and exit.")
+    console.log(chalk.greenBright("SYNOPSIS\n") +
+        chalk.yellowBright("\tpun.js [OPTIONS]\n") +
+        chalk.greenBright("OPTIONS\n") +
+        chalk.yellowBright("\t-s, --search QUERY\n") +
+        chalk.magentaBright("\t\tSearches for a pun that matches the QUERY.\n") +
+        chalk.yellowBright("\t-id NUM, --id NUM\n") +
+        chalk.magentaBright("\t\tOutputs the pun with the id of NUM\n") +
+        chalk.yellowBright("\t-h, --help\n") +
+        chalk.magentaBright("\t\tOutput a usage message and exit."));
 }
 
 // Handled case for no command line arguments for random pun
