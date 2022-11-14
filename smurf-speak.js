@@ -2,6 +2,6 @@
 
 
 
-const smurfModule = require("smurf_modules");
+const smurfModule = require("smurf.dev");
 const chalk = require("chalk");
 
