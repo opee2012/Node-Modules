@@ -1,6 +1,6 @@
 const chalk = require("chalk");
 const puns = require("puns.dev");
-const Console = require("console");
+
 const myArgs = process.argv.slice(2);
 
 function printPun(puns) {
