@@ -1,24 +1,31 @@
 const smurf = require("./smurfs.json");
 
 /**
- * Search for a specific pun based on provided keyword or keywords.
- * @param {string[]} [keywords] Keyword or List of keywords.
- * @returns {Object[]} smurf - The puns.
- * @returns {string} smurf[].smurf - The pun.
+ * Replace the text provided with smurified words.
+ * @param {string} originalText The text to convert.
+ * @returns {string} Smurfified text.
  */
-exports.smurfConvert = (keywords) => {
-    if (keywords === undefined) return smurf;
+exports.smurfConvert = (originalText) => {
+    let convertedText = "";
+    //orig text might be something like "I'm having a great day"
+    if (originalText === undefined) return originalText;
 
-    if (!Array.isArray(keywords)) keywords = [keywords];
 
-    let searchResults = [];
+    smurf.forEach(keyword => {
+        /*
+        keyword looks like
+        {
+           "word": "great",
+           "smurf": "smurfy"
+        }
 
-    keywords.forEach(keyword => {
-        let perKeywordReleventSmurf = smurf.filter(aSmurf => {
-            return (aSmurf.smurf.toLowerCase().includes(keyword.toLowerCase()))
-        })
-        searchResults.push(...perKeywordReleventSmurf)
+        keyword.smurf
+        keyword.word
+
+         */
+        //string replacement of keyword.word for keyword.smurf
+
     });
 
-    return searchResults;
+    return convertedText;
 }
