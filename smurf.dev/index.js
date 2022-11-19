@@ -13,10 +13,10 @@ exports.smurfConvert = (originalText) => {
     let tempArray = originalText.split(" ");
 
     smurf.forEach(keyword => {
-        if (!originalText.includes(keyword.word)) return originalText;
+        if (!originalText.includes(keyword.word)) return;
 
         for (let i = 0; i < tempArray.length; i++) {
-            if (tempArray[i] == keyword.word) tempArray[i] = keyword.smurf;
+            if (tempArray[i] === keyword.word) tempArray[i] = keyword.smurf;
         }
     });
     convertedText = tempArray.join(" ")
